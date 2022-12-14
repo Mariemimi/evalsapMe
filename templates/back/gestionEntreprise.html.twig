@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+
+    <table class="table table-primary table-striped">
+        <thead>
+
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nom</th>
+            <th scope="col">nVoie</th>
+            <th scope="col">CP</th>
+            <th scope="col">Ville</th>
+            <th scope="col">Date</th>
+            <th scope="col">Actions</th>
+
+        </tr>
+
+        </thead>
+        <tbody>
+
+        {% for entreprise in entreprises %}
+            <tr>
+                <th scope="row">{{ entreprise.id }}</th>
+                <td>{{ entreprise.nom }}</td>
+                <td>{{ entreprise.nom.nVoie | default ('<span
+                        style="color:red;"Aucune categorie affiché</span>')   |upper | raw}}</td>
+                <td>{{ entreprise.cp }}€</td>
+
+                <td><a href="{{ path('editProduct', {'id': entreprise.id}) }}" class="btn btn-info">Modifier</a>
+                    <a href="{{ path('deleteProduct', {'id': entreprise.id}) }}" onclick="return confirm('Etes-vous sûr?')" class="btn btn-danger">Supprimer</a>
+                </td>
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+
+
+
+{% endblock %}
+
+{% block title %}
+
+{% endblock %}
+

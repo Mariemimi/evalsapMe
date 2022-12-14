@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {{ form(form) }}
+
+
+{% endblock %}
+
+{% block title %}
+    {{ parent() }} AjoutAvis{% extends 'base.html.twig' %}
+
+    {% block title %}
+        {{ parent() }} Gestion Avis
+    {% endblock %}
+
+    {% block body %}
+
+
+
+
+
+
+        <table class="table table-primary table-striped">
+            <thead>
+
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Commentaire</th>
+                <th scope="col">note</th>
+
+                <th scope="col">Actions</th>
+
+            </tr>
+
+            </thead>
+            <tbody>
+
+            {% for avis in avis %}
+                <tr>
+                    <th scope="row">{{ avis.id }}</th>
+                    <td>{{ product.commentaire }}</td>
+                    <td>{{ product.category.commentaire }}</td>
+                    <td>{{ product.note }}€</td>
+
+                    <td><a href="{{ path('editProduct', {'id': product.id}) }}" class="btn btn-info">Modifier</a>
+                        <a href="{{ path('deleteProduct', {'id': product.id}) }}" onclick="return confirm('Etes-vous sûr?')" class="btn btn-danger">Supprimer</a>
+                    </td>
+                </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+
+
+
+
+
+
+
+
+
+    {% endblock %}
+
+
+{% endblock %}
+
